@@ -1,0 +1,22 @@
+Button codes regarding remote IR controller:
+Button Code - volumeDown: 0x300fd00ff
+Button Code - playPause: 0x300fd807f
+Button Code - volumeUp: 0x300fd40bf
+Button Code - setup: 0x300fd20df
+Button Code - previous: 0x300fda05f
+Button Code - stopMode: 0x300fd609f
+Button Code - channelDown: 0x300fd10ef
+Button Code - enterSave: 0x300fd906f
+Button Code - channelNext: 0x300fd50af
+Button Code - zeroTen: 0x300fd30cf
+Button Code - next: 0x300fdb04f
+Button Code - previous: 0x300fd708f
+Button Code - one: 0x300fd08f7
+Button Code - two: 0x300fd8877
+Button Code - three: 0x300fd48b7
+Button Code - four: 0x300fd28d7
+Button Code - five: 0x300fda857
+Button Code - six: 0x300fd6897
+Button Code - seven: 0x300fd18e7
+Button Code - eight: 0x300fd9867
+Button Code - nine: 0x300fd58a7
