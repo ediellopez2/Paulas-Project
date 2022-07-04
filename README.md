@@ -7,3 +7,11 @@ My mother, Paula, suffers from chronic health problems and it requires that I ch
 - IR (Infrared) Receiver Sensor (TSOP38238) from Adafruit Industries
 - Mini Remote Control from Adafruit Industries
 - Twilio (https://www.twilio.com/sms/pricing/us)
+
+
+## Resources & References
+#### https://github.com/Lime-Parallelogram/pyIR
+I used this program to get the HEX codes from the IR receiver and assign it a name.
+
+#### https://github.com/Lime-Parallelogram/IR-Code-Referencer
+I used this script to read any incoming button clicks. 
