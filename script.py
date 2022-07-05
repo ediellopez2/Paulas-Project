@@ -1,6 +1,8 @@
 # Imports modules
 import variables        # Stores my Google Email & Password
 from twilio.rest import Client            # Twilio
+import smtplib                            # Send Email
+from email.message import EmailMessage    # Send Email
 import RPi.GPIO as GPIO
 from datetime import datetime
 from time import sleep
@@ -103,10 +105,13 @@ while True:
             print(ButtonsNames[button]) #Prints corresponding english name for button
             if (str(ButtonsNames[button]) == 'one'):
                 message = "I need help"
+                send_email(str(ButtonsNames[button]), variables.EMAIL_TO_EDIEL, message)
                 send_sms(variables.number_ediel, message)
             elif (str(ButtonsNames[button]) == 'two'):
                 message = "Call me"
+                send_email(str(ButtonsNames[button]), variables.EMAIL_TO_EDIEL, message)
                 send_sms(variables.number_ediel, message)
             elif (str(ButtonsNames[button]) == 'three'):
                 message = "YouTube"
+                send_email(str(ButtonsNames[button]), variables.EMAIL_TO_EDIEL, message)
                 send_sms(variables.number_ediel, message)
