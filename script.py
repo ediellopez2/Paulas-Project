@@ -1,8 +1,9 @@
 # Imports modules
 import variables        # Stores my Google Email & Password
+import requests                           # Internet Connection
+import smtplib                            # Email
+from email.message import EmailMessage    # Email
 from twilio.rest import Client            # Twilio
-import smtplib                            # Send Email
-from email.message import EmailMessage    # Send Email
 import RPi.GPIO as GPIO
 from datetime import datetime
 from time import sleep
@@ -97,21 +98,38 @@ def send_sms(recipient, message):
     )
     return
 
+if __name__ == "__main__":
+    while True:
+        try:
+            inData = convertHex(getBinary()) #Runs subs to get incoming hex value
+            for button in range(len(Buttons)):#Runs through every value in list
+                if hex(Buttons[button]) == inData: #Checks this against incoming
+                    print(ButtonsNames[button]) #Prints corresponding english name for button
+                    if (str(ButtonsNames[button]) == 'one'):
+                        message = "I need help"
+                        print(datetime.now().strftime('%Y-%m-%d %H:%M:%S').__str__() + "\t" + message)
+                        send_email("Mom", variables.EMAIL_TO_EDIEL, message)
+                        send_sms(variables.number_ediel, message)
+                    elif (str(ButtonsNames[button]) == 'two'):
+                        message = "Call me"
+                        print(datetime.now().strftime('%Y-%m-%d %H:%M:%S').__str__() + "\t" + message)
+                        send_email("Mom", variables.EMAIL_TO_EDIEL, message)
+                        send_sms(variables.number_ediel, message)
+                    elif (str(ButtonsNames[button]) == 'three'):
+                        message = "YouTube"
+                        print(datetime.now().strftime('%Y-%m-%d %H:%M:%S').__str__() + "\t" + message)
+                        send_email("Mom", variables.EMAIL_TO_EDIEL, message)
+                        send_sms(variables.number_ediel, message)
+        except OSError as os_error:
+            # This executes when an attempt to send an email or sms fails because internet services are down. 
+            print(datetime.now().strftime('%Y-%m-%d %H:%M:%S').__str__() + "\t" + "Check your internet connection.")
+            sleep(60)
+            continue
+        except Exception as exc:
+            # This block will execute when an unexpected error that is unrelated to connection error occurs.
+            errorMessage = datetime.now().strftime('%Y-%m-%d %H:%M:%S').__str__() + "!\n"
+            print(errorMessage + "Here is the specific error:\n" + exc.__str__())
 
-while True:
-    inData = convertHex(getBinary()) #Runs subs to get incoming hex value
-    for button in range(len(Buttons)):#Runs through every value in list
-        if hex(Buttons[button]) == inData: #Checks this against incoming
-            print(ButtonsNames[button]) #Prints corresponding english name for button
-            if (str(ButtonsNames[button]) == 'one'):
-                message = "I need help"
-                send_email(str(ButtonsNames[button]), variables.EMAIL_TO_EDIEL, message)
-                send_sms(variables.number_ediel, message)
-            elif (str(ButtonsNames[button]) == 'two'):
-                message = "Call me"
-                send_email(str(ButtonsNames[button]), variables.EMAIL_TO_EDIEL, message)
-                send_sms(variables.number_ediel, message)
-            elif (str(ButtonsNames[button]) == 'three'):
-                message = "YouTube"
-                send_email(str(ButtonsNames[button]), variables.EMAIL_TO_EDIEL, message)
-                send_sms(variables.number_ediel, message)
+            send_email("Error", variables.EMAIL_TO_EDIEL, errorMessage)
+
+            break
