@@ -18,3 +18,5 @@ I used Final-From-Video.py from this repo to read any incoming button clicks. I 
 
 
 ## Visuals
+![Text Messages Screenshot](images/messages.jpg)
+![Hardware](images/hardware.jpg)
