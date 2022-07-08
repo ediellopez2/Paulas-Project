@@ -1,6 +1,7 @@
 # Paulas-Project
-My mother, Paula, suffers from chronic health problems and it requires that I check up on her multiple times throughout the day. Since she does not own a cell phone, I have decided to build a solution that allows her to reach me at the push of a button.
+My mother, Paula, suffers from chronic health problems and it requires that I check up on her multiple times throughout the day. Since she does not own a cell phone, I have decided to build a solution that allows her to reach me at the push of a button. At this time, I have 3 requests set up. They are **1: I need help**, **2: Call me**, and **3: YouTube**. I included **3: YouTube** as a request because my mother likes to watch YouTube videos at the of the day. 
 
+This solution gives my mother back her independence as I no longer have to hover over her shoulder throughout the day. This also allows me to focus more on my work as I work from home at this time.
 
 ## Hardware & Software Needed
 - Raspberry Pi
